@@ -1,0 +1,22 @@
+# All Targets
+all: server
+
+# Tool invocations
+server: line_parser.o server.o common.o
+	gcc -m64 -Wall -ansi line_parser.o common.o server.o -o server
+
+line_parser.o: line_parser.c
+	gcc -m64 -Wall -ansi -c -fno-stack-protector line_parser.c -o line_parser.o
+
+common.o: common.c
+	gcc -m64 -Wall -ansi -c -fno-stack-protector common.c -o common.o
+
+server.o: server.c
+	gcc -m64 -Wall -ansi -c -fno-stack-protector server.c -o server.o
+
+#tell make that "clean" is not a file name!
+.PHONY: clean
+
+#Clean the build directory
+clean: 
+	rm -f *.o server

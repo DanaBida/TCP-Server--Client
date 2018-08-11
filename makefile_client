@@ -1,0 +1,19 @@
+# All Targets
+all: client
+
+# Tool invocations
+client: line_parser.o client.o
+	gcc -m64 -Wall -ansi line_parser.o client.o -o client
+
+line_parser.o: line_parser.c
+	gcc -m64 -Wall -ansi -c -fno-stack-protector line_parser.c -o line_parser.o
+
+client.o: client.c
+	gcc -m64 -Wall -ansi -c -fno-stack-protector client.c -o client.o
+
+#tell make that "clean" is not a file name!
+.PHONY: clean
+
+#Clean the build directory
+clean: 
+	rm -f *.o client
