@@ -1,6 +1,6 @@
 # TCP-Server-Client
 
-*The client implementes in a source file called client.c and the server in server.c.
+The client is implemented in a source file called client.c and the server in server.c.
 
 Services of the server: connecting, listing directories and downloading files.
 
@@ -13,5 +13,5 @@ The client check the return value of all socket APIs for errors. in case of erro
 The server also check the return value. on error - print the error , free any resources allocated for the client, and return to listening for new connections.
 
 The addition files: common, line_parser are helping files for :
-*line_parser - parsing the text that sending from and to the client and the server (separates words and sentences by spaces and newline chars).
-*commom - include helper functions for listing the directories in the working directory.
+line_parser - parsing the text that sending from and to the client and the server (separates words and sentences by spaces and newline chars).
+commom - include helper functions for listing the directories in the working directory.
